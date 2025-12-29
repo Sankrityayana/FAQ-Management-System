@@ -1,5 +1,5 @@
 <?php
-require_once 'config.php';
+require_once 'includes/config.php';
 
 $success_message = '';
 $error_message = '';
@@ -47,21 +47,14 @@ $faq = mysqli_fetch_assoc($result);
 // Get existing categories
 $categories_sql = "SELECT DISTINCT category FROM faqs ORDER BY category";
 $categories_result = mysqli_query($conn, $categories_sql);
+
+// Set page title and header
+$page_title = "Edit FAQ";
+$header_title = "✏️ Edit FAQ";
+$header_subtitle = "Update frequently asked question";
+
+include 'includes/header.php';
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit FAQ - FAQ Management System</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>✏️ Edit FAQ</h1>
-            <p class="subtitle">Update frequently asked question</p>
-        </header>
 
         <div class="form-container">
             <a href="index.php" class="btn btn-back">← Back to FAQs</a>
@@ -107,9 +100,4 @@ $categories_result = mysqli_query($conn, $categories_sql);
             </form>
         </div>
 
-        <footer>
-            <p>&copy; 2025 FAQ Management System. All rights reserved.</p>
-        </footer>
-    </div>
-</body>
-</html>
+<?php include 'includes/footer.php'; ?>

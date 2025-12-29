@@ -1,5 +1,5 @@
 <?php
-require_once 'config.php';
+require_once 'includes/config.php';
 
 // Get all FAQs with optional category filter
 $category_filter = isset($_GET['category']) ? $_GET['category'] : '';
@@ -19,21 +19,14 @@ $result = mysqli_query($conn, $sql);
 // Get all categories
 $categories_sql = "SELECT DISTINCT category FROM faqs ORDER BY category";
 $categories_result = mysqli_query($conn, $categories_sql);
+
+// Set page title and header
+$page_title = "Home";
+$header_title = "📚 FAQ Management System";
+$header_subtitle = "Manage your frequently asked questions efficiently";
+
+include 'includes/header.php';
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ Management System</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>📚 FAQ Management System</h1>
-            <p class="subtitle">Manage your frequently asked questions efficiently</p>
-        </header>
 
         <div class="controls">
             <a href="add_faq.php" class="btn btn-add">+ Add New FAQ</a>
@@ -92,21 +85,4 @@ $categories_result = mysqli_query($conn, $categories_sql);
             <?php endif; ?>
         </div>
 
-        <footer>
-            <p>&copy; 2025 FAQ Management System. All rights reserved.</p>
-        </footer>
-    </div>
-
-    <script>
-        // Add smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
-</body>
-</html>
+<?php include 'includes/footer.php'; ?>

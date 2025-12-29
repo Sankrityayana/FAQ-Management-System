@@ -52,19 +52,19 @@ Copy the `FAQ-Management-System` folder to your XAMPP's `htdocs` directory:
 
 1. Open your browser and go to `http://localhost/phpmyadmin`
 2. Click on **"Import"** tab
-3. Click **"Choose File"** and select `database.sql` from the project folder
+3. Click **"Choose File"** and select `database.sql` from the **`sql`** folder
 4. Click **"Go"** to import the database
 
 **OR** manually create the database:
 1. Click **"New"** in phpMyAdmin
 2. Create database named: `faq_management_system`
 3. Click on the database and go to **SQL** tab
-4. Copy and paste the contents of `database.sql`
+4. Copy and paste the contents of `sql/database.sql`
 5. Click **"Go"**
 
 ### Step 5: Configure Database Connection
 
-Open `config.php` and verify the database credentials:
+Open `includes/config.php` and verify the database credentials:
 
 ```php
 define('DB_HOST', 'localhost');
@@ -85,14 +85,27 @@ http://localhost/FAQ-Management-System/
 ```
 FAQ-Management-System/
 │
-├── index.php           # Main page - displays all FAQs
-├── add_faq.php        # Add new FAQ
-├── edit_faq.php       # Edit existing FAQ
-├── delete_faq.php     # Delete FAQ
-├── config.php         # Database configuration
-├── style.css          # All styling (dark multicolor theme)
-├── database.sql       # Database schema and sample data
-└── README.md          # Project documentation
+├── assets/
+│   └── images/           # Images and icons
+│
+├── css/
+│   └── style.css         # All styling (dark multicolor theme)
+│
+├── includes/
+│   ├── config.php        # Database configuration
+│   ├── header.php        # Reusable header component
+│   └── footer.php        # Reusable footer component
+│
+├── sql/
+│   └── database.sql      # Database schema and sample data
+│
+├── index.php             # Main page - displays all FAQs
+├── add_faq.php          # Add new FAQ
+├── edit_faq.php         # Edit existing FAQ
+├── delete_faq.php       # Delete FAQ
+├── .gitignore           # Git ignore file
+├── LICENSE              # MIT License
+└── README.md            # Project documentation
 ```
 
 ## 💡 Usage
@@ -130,7 +143,7 @@ The system uses a dark theme with multicolor accents:
 ## 🔧 Customization
 
 ### Changing Colors
-Edit `style.css` to modify the color scheme. Key variables to change:
+Edit `css/style.css` to modify the color scheme. Key variables to change:
 - Background colors
 - Button colors
 - Border colors
@@ -148,7 +161,7 @@ You can extend the system by:
 
 ### Database Connection Error
 - Verify XAMPP MySQL is running
-- Check database credentials in `config.php`
+- Check database credentials in `includes/config.php`
 - Ensure database exists in phpMyAdmin
 
 ### Page Not Found (404)
@@ -158,7 +171,7 @@ You can extend the system by:
 
 ### Styles Not Loading
 - Clear browser cache
-- Check `style.css` path in HTML files
+- Check `css/style.css` path in HTML files
 - Verify file permissions
 
 ## 📝 Database Schema

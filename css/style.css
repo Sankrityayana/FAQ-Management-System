@@ -370,6 +370,21 @@ footer {
     color: #6e7681;
 }
 
+.footer-links {
+    margin-top: 10px;
+}
+
+.footer-links a {
+    color: #58a6ff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #4ecdc4;
+    text-decoration: underline;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     header h1 {
