@@ -52,15 +52,15 @@ Copy the `FAQ-Management-System` folder to your XAMPP's `htdocs` directory:
 
 1. Open your browser and go to `http://localhost/phpmyadmin`
 2. Click on **"Import"** tab
-3. Click **"Choose File"** and select `database.sql` from the **`sql`** folder
+3. Click **"Choose File"** and select `database.sql` from the **`database`** folder
 4. Click **"Go"** to import the database
 
 **OR** manually create the database:
 1. Click **"New"** in phpMyAdmin
 2. Create database named: `faq_management_system`
 3. Click on the database and go to **SQL** tab
-4. Copy and paste the contents of `sql/database.sql`
-5. Click **"Go"**
+4. Copy and paste the contents of `database/database.sql`
+5. Click **"Go"
 
 ### Step 5: Configure Database Connection
 
@@ -85,19 +85,16 @@ http://localhost/FAQ-Management-System/
 ```
 FAQ-Management-System/
 │
-├── assets/
-│   └── images/           # Images and icons
-│
 ├── css/
 │   └── style.css         # All styling (dark multicolor theme)
+│
+├── database/
+│   └── database.sql      # Database schema and sample data
 │
 ├── includes/
 │   ├── config.php        # Database configuration
 │   ├── header.php        # Reusable header component
 │   └── footer.php        # Reusable footer component
-│
-├── sql/
-│   └── database.sql      # Database schema and sample data
 │
 ├── index.php             # Main page - displays all FAQs
 ├── add_faq.php          # Add new FAQ
